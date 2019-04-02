@@ -3,7 +3,7 @@
 // each one related to a topic that interests you. 
 //Save it to a variable called `topics`.
 // We chose animals for our theme, but you can make a list to your own liking.
-const topics = ["Trump","Obama","Sailor Moon","Lady Gaga","Marilyn Monroe","Leonardo DiCaprio","Detective Conan","Elizabeth II","Benedict Cumberbatch","Sailor Mercury","Ziyi Zhang","Doraemon"];
+const topics = ["Trump","Obama","Sailor Moon","Lady Gaga","Marilyn Monroe","Leonardo DiCaprio","Detective Conan","Jackie Chan","Elizabeth II","Benedict Cumberbatch","Sailor Mercury","Ziyi Zhang","Doraemon"];
 $("#buttons-view").empty();
 
 // Your app should take the topics in this array and create buttons in your HTML.
@@ -32,7 +32,7 @@ $.ajax({
     method: "GET"
   })
     .then(function(response) {
-        //console.log(response);
+       console.log(response);
       var results = response.data;
 
        // Under every gif, display its rating (PG, G, so on).
@@ -46,29 +46,40 @@ $.ajax({
       var p = $("<p>").text("Rating: " + rating);
 
       //non-animated gif images from the GIPHY API and place them on the page.
-
-     var personImage = $("<img>");
-     personImage.attr("class","image");
-     personImage.attr("src", results[j].images.fixed_height_still.url);
-
+       var imageView = results[j].images.fixed_height.url;
+       var stillView = results[j].images.fixed_height_still.url;
+  
+       var personImage = $("<img>").attr("src", stillView).attr('data-animate', imageView).attr('data-still', stillView);
+           
+           personImage.attr("data-state","still");
+           personImage.on("click",clickImage)
+       
      personDiv.prepend(p);
      personDiv.prepend(personImage);
 
     $("#gif-view").prepend(personDiv);
+  
+    }
 
-  }
 
-    });
-
-  }
-
-  $("button").on("click", clickButton)
-
+  });
 
 // When the user clicks one of the still GIPHY images, 
 //the gif should animate. If the user clicks the gif again, it should stop playing.
+  const clickImage = function () {
+    var state = $(this).attr("data-state");
+            console.log(state) 
+    if (state == "still"){
+              $(this).attr("src", $(this).data("animate"));
+               $(this).attr("data-state", "animate");
+          } else{
+              $(this).attr("src", $(this).data("still"));
+              $(this).attr("data-state", "still");   }  
+}
 
+}
 
+  $("button").on("click", clickButton)
 
 
 // Only once you get images displaying with button presses should you move on to the next step.
