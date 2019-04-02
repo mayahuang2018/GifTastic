@@ -32,7 +32,7 @@ $.ajax({
     method: "GET"
   })
     .then(function(response) {
-       console.log(response);
+      
       var results = response.data;
 
        // Under every gif, display its rating (PG, G, so on).
@@ -51,7 +51,7 @@ $.ajax({
   
        var personImage = $("<img>").attr("src", stillView).attr('data-animate', imageView).attr('data-still', stillView);
            
-           personImage.attr("data-state","still");
+           personImage.attr("data-stored","still");
            personImage.on("click",clickImage)
        
      personDiv.prepend(p);
@@ -67,14 +67,14 @@ $.ajax({
 // When the user clicks one of the still GIPHY images, 
 //the gif should animate. If the user clicks the gif again, it should stop playing.
   const clickImage = function () {
-    var state = $(this).attr("data-state");
-            console.log(state) 
+    var state = $(this).attr("data-stored");
+  
     if (state == "still"){
               $(this).attr("src", $(this).data("animate"));
-               $(this).attr("data-state", "animate");
+               $(this).attr("data-stored", "animate");
           } else{
               $(this).attr("src", $(this).data("still"));
-              $(this).attr("data-state", "still");   }  
+              $(this).attr("data-stored", "still");   }  
 }
 
 }
