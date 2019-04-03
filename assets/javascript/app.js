@@ -3,7 +3,7 @@
 // each one related to a topic that interests you. 
 //Save it to a variable called `topics`.
 // We chose animals for our theme, but you can make a list to your own liking.
-const topics = ["Trump","Obama","Sailor Moon","Lady Gaga","Marilyn Monroe","Leonardo DiCaprio","Detective Conan","Jackie Chan","Elizabeth II","Benedict Cumberbatch","Sailor Mercury","Ziyi Zhang","Doraemon"];
+const topics = ["Trump","Obama","Simba","Sailor Moon","Marilyn Monroe","Leonardo DiCaprio","Detective Conan","Jackie Chan","Elizabeth II","Totoro","Benedict Cumberbatch","Sailor Mercury","Ziyi Zhang","Doraemon"];
 $("#buttons-view").empty();
 
 // Your app should take the topics in this array and create buttons in your HTML.
