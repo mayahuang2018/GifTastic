@@ -1,8 +1,8 @@
 # GifTastic
 
-This is the 6th homework of my GT coding bootcamp.
-
 ![001image](assets/css/images/001.png)
+
+This is the 6th homework of my GT coding bootcamp.
 
 In this assigment, I made a dynamic web that populates with gifs of user's choice. 
 
