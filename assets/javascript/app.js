@@ -1,7 +1,7 @@
 
 // Before you can make any part of our site work, you need to create an array of strings,
 //Save it to a variable called `topics`.
-const topics = ["Trump","Obama","Simba","Sailor Moon","Marilyn Monroe","Leonardo DiCaprio","Detective Conan","Jackie Chan","Elizabeth II","Totoro","Benedict Cumberbatch","Sailor Mercury","Ziyi Zhang","Doraemon"];
+const topics = ["Simba","Sailor Moon","Leonardo DiCaprio","Detective Conan","Jackie Chan","Totoro","Benedict Cumberbatch","Sailor Mercury","Doraemon"];
 
 $("#buttons-view").empty();
 
@@ -21,7 +21,7 @@ for (let i=0;i<topics.length;i++){
 
 // When the user clicks on a button, the page should grab 10 static, 
 
-const clickButton = function() {
+function clickButton () {
 
 $("#gif-view").empty();
 
@@ -64,7 +64,7 @@ $.ajax({
 
 // When the user clicks one of the still GIPHY images, 
 //the gif should animate. If the user clicks the gif again, it should stop playing.
-  const clickImage = function () {
+ function clickImage () {
     var stored = $(this).attr("data-stored");
   
     if (stored == "still"){
